@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon-light.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="/favicon-dark.png" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/png" href="/favicon-light.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ward — the x402 correctness layer</title>
+    <meta name="description" content="Ward verifies whether an x402 payment facilitator actually honors its correctness invariants — adversarial tests, derived from a USENIX security study, run against a real self-hosted facilitator." />
+  </head>
+  <body>
+    <div id="app">
+      <header class="nav">
+        <div class="wrap">
+          <a class="logo" href="#top">
+            <img class="logo-mark logo-mark-light" src="/logo/light.png" alt="" width="26" height="20" />
+            <img class="logo-mark logo-mark-dark" src="/logo/dark.png" alt="" width="26" height="20" />
+            Ward
+          </a>
+          <nav class="nav-links">
+            <a class="nav-link hide-mobile" href="#invariants">Invariants</a>
+            <a class="nav-link hide-mobile" href="#how">How it works</a>
+            <a class="nav-icon-link" href="https://github.com/debojyoti10CC/alg402" target="_blank" rel="noopener" aria-label="View source on GitHub">
+              <svg class="nav-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>
+            </a>
+            <a class="btn btn-primary" href="https://docs.algoward.xyz/">Read the docs</a>
+          </nav>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="wrap hero-grid">
+            <div class="hero-left">
+              <span class="eyebrow">x402 · Algorand · facilitator verification</span>
+              <h1 class="hero-display">The x402 <em>correctness</em> layer.</h1>
+              <p class="body-default">
+                A USENIX study found correctness violations in every major x402 facilitator
+                tested. Ward checks whether yours actually holds up — against a real,
+                self-hosted facilitator, not a mock.
+              </p>
+              <div class="hero-ctas">
+                <a class="btn btn-primary" href="https://docs.algoward.xyz/">Read the docs</a>
+                <a class="btn btn-ghost" href="https://github.com/debojyoti10CC/alg402" target="_blank" rel="noopener">View on GitHub ↗</a>
+              </div>
+            </div>
+            <div class="hero-right">
+              <div class="hero-card">
+                <div class="hero-art-wrap">
+                  <img class="hero-art" src="/hero-art.png" alt="" />
+                </div>
+                <div class="hero-stat">
+                  <span class="mono-label">Ward's own last run</span>
+                  <div class="hero-stat-number">8<span class="hero-stat-slash">/</span>8</div>
+                  <span class="small-ui">invariants passed, real self-hosted facilitator</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="intro-bar">
+          <div class="wrap">
+            <span class="body-medium">A missing piece of x402 infrastructure — a real correctness test suite.</span>
+            <a class="intro-link" href="https://docs.algoward.xyz/">Read the docs →</a>
+          </div>
+        </div>
+
+        <section class="stats">
+          <div class="stat">
+            <div class="stat-number">8</div>
+            <span class="mono-label">Adversarial invariants</span>
+          </div>
+          <div class="stat">
+            <div class="stat-number">5</div>
+            <span class="mono-label">Must-have, zero tolerance</span>
+          </div>
+          <div class="stat">
+            <div class="stat-number">4</div>
+            <span class="mono-label">USENIX violation classes</span>
+          </div>
+          <div class="stat">
+            <div class="stat-number">15/15</div>
+            <span class="mono-label">Facilitators failed the study</span>
+          </div>
+        </section>
+
+        <section class="features">
+          <div class="feature">
+            <div class="feature-ring"></div>
+            <h3 class="card-heading">Real facilitator, not mocks</h3>
+            <p class="body-tight"><strong>Every check runs against a real, self-hosted facilitator.</strong><br>Live TestNet transactions over the real x402-avm implementation — never a simulated stand-in.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-ring"></div>
+            <h3 class="card-heading">Adversarial by design</h3>
+            <p class="body-tight"><strong>Invariants come from a real security study, not guesswork.</strong><br>Derived from the x402 protocol spec and a peer-reviewed USENIX study of real facilitator failures.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-ring"></div>
+            <h3 class="card-heading">Chain-agnostic core</h3>
+            <p class="body-tight"><strong>A second chain is a new adapter, not a rewrite.</strong><br>Universal invariants never import Algorand-specific code — the boundary is enforced, not assumed.</p>
+          </div>
+        </section>
+
+        <section class="section" id="invariants">
+          <div class="wrap">
+            <div class="section-head">
+              <span class="eyebrow">The suite</span>
+              <h2 class="section-heading">Eight invariants, <em>zero</em> assumptions.</h2>
+              <p class="body-default">Every result ships reproducible evidence — request/response pairs, on-chain transaction IDs, and the exact source it's checking against.</p>
+            </div>
+
+            <div class="invariants-table">
+              <div class="inv-row head">
+                <span class="mono-label">ID</span>
+                <span class="mono-label">Invariant</span>
+                <span class="mono-label inv-category">Category</span>
+                <span class="mono-label">Tier</span>
+              </div>
+              <div class="inv-row">
+                <span class="inv-id">U1</span>
+                <div><div class="inv-name">Verify/settle consistency</div><div class="inv-source">x402 protocol spec + USENIX — Free Shopping, Asset Theft</div></div>
+                <span class="inv-category">universal</span>
+                <span class="tier must">must-have</span>
+              </div>
+              <div class="inv-row">
+                <span class="inv-id">U2</span>
+                <div><div class="inv-name">Retry safety</div><div class="inv-source">USENIX — Free Shopping via naive retries</div></div>
+                <span class="inv-category">universal</span>
+                <span class="tier must">must-have</span>
+              </div>
+              <div class="inv-row">
+                <span class="inv-id">U3</span>
+                <div><div class="inv-name">Concurrent double-settle</div><div class="inv-source">USENIX — concurrency races</div></div>
+                <span class="inv-category">universal</span>
+                <span class="tier must">must-have</span>
+              </div>
+              <div class="inv-row">
+                <span class="inv-id">U4</span>
+                <div><div class="inv-name">Allowlist enforcement</div><div class="inv-source">x402 spec — /supported must be authoritative</div></div>
+                <span class="inv-category">universal</span>
+                <span class="tier must">must-have</span>
+              </div>
+              <div class="inv-row">
+                <span class="inv-id">A1</span>
+                <div><div class="inv-name">Atomic group integrity</div><div class="inv-source">Algorand atomic groups + verifyFeePayerTransaction — all four USENIX classes</div></div>
+                <span class="inv-category">algorand</span>
+                <span class="tier must">must-have</span>
+              </div>
+              <div class="inv-row">
+                <span class="inv-id">U5</span>
+                <div><div class="inv-name">Gas abuse resubmission</div><div class="inv-source">USENIX — Gas Abuse</div></div>
+                <span class="inv-category">universal</span>
+                <span class="tier stretch">stretch</span>
+              </div>
+              <div class="inv-row">
+                <span class="inv-id">A2</span>
+                <div><div class="inv-name">ASA opt-in precheck</div><div class="inv-source">Algorand ASA opt-in requirement</div></div>
+                <span class="inv-category">algorand</span>
+                <span class="tier stretch">stretch</span>
+              </div>
+              <div class="inv-row">
+                <span class="inv-id">A3</span>
+                <div><div class="inv-name">Rekey authorization</div><div class="inv-source">Algorand rekeying — settle() must not trust pre-rekey authority</div></div>
+                <span class="inv-category">algorand</span>
+                <span class="tier stretch">stretch</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="ticks"></div>
+
+        <section class="section" id="how">
+          <div class="wrap">
+            <div class="section-head">
+              <span class="eyebrow">Get started</span>
+              <h2 class="section-heading">Two ways to run <em>Ward</em>.</h2>
+            </div>
+
+            <div class="how-grid">
+              <div class="how-card">
+                <h3 class="card-heading">Run it yourself</h3>
+                <p class="body-tight">Open-source CLI. Boots a self-hosted facilitator, funds test accounts, and runs the full suite against it.</p>
+                <div class="codeblock"><span class="cmt"># clone, install, verify</span><br><span class="accent-line">npm</span> install<br><span class="accent-line">ward</span> init<br><span class="accent-line">ward</span> test</div>
+              </div>
+              <div class="how-card">
+                <h3 class="card-heading">Pay per check</h3>
+                <p class="body-tight">A hosted, x402-gated endpoint: pay once in USDC, submit any facilitator URL, get a real pass/fail report back.</p>
+                <div class="codeblock"><span class="cmt"># $1.00 per full run</span><br><span class="accent-line">POST</span> /verify-facilitator<br>{ "facilitatorUrl": "..." }</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div class="ticks"></div>
+
+      <footer class="footer">
+        <div class="wrap">
+          <div class="footer-col">
+            <svg class="footer-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
+            <h2>Documentation</h2>
+            <p class="body-default">Setup, the invariant catalog, and how to point Ward at your own facilitator.</p>
+            <a class="footer-link" href="https://docs.algoward.xyz/">Read the docs →</a>
+          </div>
+          <div class="footer-col">
+            <svg class="footer-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>
+            <h2>Source</h2>
+            <p class="body-default">Open core, chain-agnostic by design. Read every invariant's ground truth for yourself.</p>
+            <a class="footer-link" href="https://github.com/debojyoti10CC/alg402" target="_blank" rel="noopener">
+              <svg role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      <div class="footer-bottom">
+        <div class="wrap">
+          <span class="caption">Ward — verifies x402 facilitators against real adversarial invariants.</span>
+          <span class="caption">Algorand TestNet</span>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
